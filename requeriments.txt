@@ -1,0 +1,6 @@
+flask
+flask_cors 
+selenium
+webdriver_manager.chrome 
+palettable
+gunicorn
