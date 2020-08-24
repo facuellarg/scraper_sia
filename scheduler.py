@@ -20,7 +20,7 @@ import threading
 from data_schedule import schedulers
 import time
 #-------------------------------------
-# schedulers = {}
+
 
 
 def list_of_files(directory_path):
@@ -101,20 +101,22 @@ def get_scheduler_info(user,password):
     PROFESSOR = 11
     colors = Bold_10.hex_colors
     # --------------------------- para heroku-----------------------------------------------------------------
-    # op = webdriver.ChromeOptions()
-    # op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # op.add_argument("--headless")
-    # op.add_argument("--disable-dev-shm-usage")
-    # op.add_argument("--no-sandbox")
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
-    # ----------------------------------------------------------------------------------------------------
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver.minimize_window()
+    op = webdriver.ChromeOptions()
+    op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    op.add_argument("--headless")
+    op.add_argument("--disable-dev-shm-usage")
+    op.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
+    # -------------------------------------------------------------------------------------------------------
+    # ---------------------------- para local-----------------------------------------------------------------
+    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver.minimize_window()
+    # -------------------------------------------------------------------------------------------------------
     driver.get(login_url)
     print(driver)
     if login_sia(driver, user, password):
-        if user in schedulers.keys():
-            return schedulers[user]
+        # if user in schedulers.keys():
+        #     return schedulers[user]
         go_to_horario(driver)
         go_to_list(driver)
         WebDriverWait(driver, 20).until(
@@ -193,7 +195,7 @@ def get_scheduler_info(user,password):
                 load = True
                 i += 1
         driver.quit()
-        schedulers[user]=info_courses
+        # schedulers[user]=info_courses
         return info_courses
     return ("Usuario o contraseña invalidos")
 
@@ -204,6 +206,8 @@ def get_scheduler_info_simulation(user,password):
     else:
         return ("Usuario o contraseña invalidos")
     raise Exception("No existe el usuario")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-u','--user',help="Su usuario unal",type=str)

@@ -21,7 +21,8 @@ def get_scheduler(user,password):
     while(True):
         schedule_info=None
         try:
-            schedule_info = get_scheduler_info_simulation(user, password)
+            # schedule_info = get_scheduler_info_simulation(user, password)
+            schedule_info = get_scheduler_info(user, password)
         except:
             continue
         schedulers[user]={}
