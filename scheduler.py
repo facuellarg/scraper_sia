@@ -114,10 +114,10 @@ def get_scheduler_info(user,password):
     # -------------------------------------------------------------------------------------------------------
     driver.get(login_url)
     print(driver)
-    if login_sia(driver, user, password):
+    login_sia(driver, user, password)
+    if go_to_horario(driver):
         # if user in schedulers.keys():
         #     return schedulers[user]
-        go_to_horario(driver)
         go_to_list(driver)
         WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH,'//tr[contains(@class,"af_calendar_list-row")]'))
@@ -197,7 +197,7 @@ def get_scheduler_info(user,password):
         driver.quit()
         # schedulers[user]=info_courses
         return info_courses
-    return ("Usuario o contraseña invalidos")
+    return("Usuario o contraseña invalidos")
 
 def get_scheduler_info_simulation(user,password):
     time.sleep(random.randint(0,30))
