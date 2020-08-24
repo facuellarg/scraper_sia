@@ -21,8 +21,8 @@ def get_scheduler(user,password):
     while(True):
         schedule_info=None
         try:
-            # schedule_info = get_scheduler_info_simulation(user, password)
             schedule_info = get_scheduler_info(user, password)
+            # schedule_info = get_scheduler_info_simulation(user, password)
         except:
             continue
         schedulers[user]={}
@@ -56,9 +56,10 @@ def scheduler():
         return response({'message':"Su peticion se empezara a procesar, por favor intente en unos minutos"},102)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/PendingUsers', methods=['GET'])
 def queue_list():
-   return {t:True for t in threads.keys()}
+   return {thread:True for thread in threads.keys()}
+
 
 
 
@@ -68,9 +69,18 @@ def clean_threads():
         for thread in list_keys:
             if not threads[thread].is_alive():
                 print("Reportando: Hilo del usuario ",thread,' finalizado')
-                del threads[thread]
+                del threads[thread] 
         time.sleep(5)
-    
+t = threading.Thread(target=clean_threads)
+t.daemon=True
+
+@app.route('/', methods=['GET'])
+def clean_threads_query():
+    if not t.is_alive():
+        t.start()
+    return{"message":"Corriendo limpieza de hilos"}
+
+
 
 if __name__ == '__main__': 
     t = threading.Thread(target=clean_threads)
