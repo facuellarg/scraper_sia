@@ -1,11 +1,11 @@
 import requests
-from bs4 import BeautifulSoup
 import selenium
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.firefox import GeckoDriverManager
 from palettable.cartocolors.qualitative import Bold_10
 import os
 from os import path
@@ -15,9 +15,13 @@ import json
 import re
 import argparse
 import random
-DATA_FOLDER =  './data'
-# op = webdriver.ChromeOptions()
-# op.add_argument('headless')
+import threading
+#------para simulacion----------------
+from data_schedule import schedulers
+import time
+#-------------------------------------
+# schedulers = {}
+
 
 def list_of_files(directory_path):
     return {f:True for f in os.listdir(directory_path) if path.isfile(path.join(directory_path, f)) }
@@ -96,16 +100,21 @@ def get_scheduler_info(user,password):
     GROUP=10
     PROFESSOR = 11
     colors = Bold_10.hex_colors
+    # --------------------------- para heroku-----------------------------------------------------------------
+    # op = webdriver.ChromeOptions()
+    # op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # op.add_argument("--headless")
+    # op.add_argument("--disable-dev-shm-usage")
+    # op.add_argument("--no-sandbox")
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
+    # ----------------------------------------------------------------------------------------------------
     driver = webdriver.Chrome(ChromeDriverManager().install())
-    # driver.minimize_window()
-    driver.get(login_url)   
+    driver.minimize_window()
+    driver.get(login_url)
+    print(driver)
     if login_sia(driver, user, password):
-        schedule_file = user+'.json'
-        schedules = list_of_files(DATA_FOLDER) 
-        if schedule_file in schedules.keys():
-            with open( DATA_FOLDER + '/'+schedule_file,'r') as f:
-                driver.quit()
-                return json.load(f)
+        if user in schedulers.keys():
+            return schedulers[user]
         go_to_horario(driver)
         go_to_list(driver)
         WebDriverWait(driver, 20).until(
@@ -184,14 +193,21 @@ def get_scheduler_info(user,password):
                 load = True
                 i += 1
         driver.quit()
-        with open( DATA_FOLDER + '/'+schedule_file,'w') as f:
-            json.dump(info_courses, f, indent=2)
+        schedulers[user]=info_courses
         return info_courses
+    return ("Usuario o contraseña invalidos")
 
+def get_scheduler_info_simulation(user,password):
+    time.sleep(random.randint(0,30))
+    if user in schedulers.keys():
+        return schedulers[user]
+    else:
+        return ("Usuario o contraseña invalidos")
+    raise Exception("No existe el usuario")
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-u','--user',help="Su usuario unal",type=str)
     parser.add_argument('-p','--password', help='Su contraseña', type=str)
     args = parser.parse_args()
-    with open(DATA_FOLDER+'/horario.json','w') as f:
+    with open('./horario.json','w') as f:
         json.dump(get_scheduler_info(args.user, args.password),f,indent=2)

@@ -1,6 +1,7 @@
 flask
 flask_cors 
 selenium
-webdriver_manager.chrome 
+webdriver_manager
 palettable
+passlib
 gunicorn
