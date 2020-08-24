@@ -1,0 +1,118 @@
+{
+  "2015900": {
+    "color": "#E73F74",
+    "mi\u00e9rcoles": {
+      "name": "Manejo integrado de malezas",
+      "hour": [
+        "07:00",
+        "10:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "MAREN"
+      ],
+      "professor": "Guido Armando Plaza Trujillo"
+    },
+    "jueves": {
+      "name": "Manejo integrado de malezas",
+      "hour": [
+        "09:00",
+        "11:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "500",
+        "305"
+      ],
+      "professor": "Guido Armando Plaza Trujillo"
+    }
+  },
+  "2015899": {
+    "color": "#11A579",
+    "mi\u00e9rcoles": {
+      "name": "Manejo Integrado de Enfermedades",
+      "hour": [
+        "10:00",
+        "13:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "MAREN"
+      ],
+      "professor": "Celsa Garcia Dominguez"
+    },
+    "viernes": {
+      "name": "Manejo Integrado de Enfermedades",
+      "hour": [
+        "07:00",
+        "09:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "500",
+        "305"
+      ],
+      "professor": "Celsa Garcia Dominguez"
+    }
+  },
+  "2015901": {
+    "color": "#008695",
+    "mi\u00e9rcoles": {
+      "name": "Manejo integrado de plagas",
+      "hour": [
+        "14:00",
+        "17:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "MAREN"
+      ],
+      "professor": "Augusto Ramirez Godoy"
+    },
+    "jueves": {
+      "name": "Manejo integrado de plagas",
+      "hour": [
+        "07:00",
+        "09:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "500",
+        "305"
+      ],
+      "professor": "Augusto Ramirez Godoy"
+    }
+  },
+  "2015898": {
+    "color": "#80BA5A",
+    "martes": {
+      "name": "Manejo de la fertilidad del suelo",
+      "hour": [
+        "07:00",
+        "12:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "500",
+        "305"
+      ],
+      "professor": "Jaime Torres Bazurto"
+    }
+  },
+  "2015891": {
+    "color": "#F97B72",
+    "martes": {
+      "name": "Fisiolog\u00eda de la producci\u00f3n vegetal",
+      "hour": [
+        "14:00",
+        "18:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "500",
+        "301"
+      ],
+      "professor": "Hermann Restrepo Diaz"
+    }
+  }
+}

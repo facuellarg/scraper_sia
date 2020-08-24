@@ -1,0 +1,105 @@
+{
+  "2021141": {
+    "color": "#008695",
+    "mi\u00e9rcoles": {
+      "name": "Ciencia, tecnolog\u00eda y desarrollo",
+      "hour": [
+        "07:00",
+        "09:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "405",
+        "203"
+      ],
+      "professor": "Eduardo Posada Florez"
+    },
+    "lunes": {
+      "name": "Ciencia, tecnolog\u00eda y desarrollo",
+      "hour": [
+        "07:00",
+        "09:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "405",
+        "203"
+      ],
+      "professor": "Eduardo Posada Florez"
+    }
+  },
+  "2025983": {
+    "color": "#11A579",
+    "mi\u00e9rcoles": {
+      "name": "Arquitectura de infraestructura y gobierno de tics",
+      "hour": [
+        "16:00",
+        "18:00"
+      ],
+      "group": "2",
+      "classroom": [
+        "453",
+        "119"
+      ],
+      "professor": "Henry Roberto Uma\u00f1a Acosta"
+    },
+    "lunes": {
+      "name": "Arquitectura de infraestructura y gobierno de tics",
+      "hour": [
+        "16:00",
+        "18:00"
+      ],
+      "group": "2",
+      "classroom": [
+        "453",
+        "119"
+      ],
+      "professor": "Henry Roberto Uma\u00f1a Acosta"
+    }
+  },
+  "2016703": {
+    "color": "#3969AC",
+    "jueves": {
+      "name": "Pensamiento sist\u00e9mico",
+      "hour": [
+        "09:00",
+        "11:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "401",
+        "101"
+      ],
+      "professor": "Rafael Leonardo Ochoa Urrego"
+    },
+    "martes": {
+      "name": "Pensamiento sist\u00e9mico",
+      "hour": [
+        "09:00",
+        "11:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "401",
+        "101"
+      ],
+      "professor": null
+    }
+  },
+  "1000075-B": {
+    "color": "#E73F74",
+    "lunes": {
+      "name": "Gr\u00e1fica interactiva",
+      "hour": [
+        "18:00",
+        "20:00"
+      ],
+      "group": "1",
+      "classroom": [
+        "EXT",
+        "BOG"
+      ],
+      "professor": "Carlos Alberto Delgado Rivera"
+    }
+  }
+}
