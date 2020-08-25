@@ -19,7 +19,7 @@ def response(data,status):
 
 
 def get_scheduler(user,password,queue):
-
+    user = user.lower()
     schedule_info=None
     schedule_info = get_scheduler_info(user, password)
     # schedule_info = get_scheduler_info_simulation(user, password)
